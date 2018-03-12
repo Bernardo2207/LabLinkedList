@@ -92,9 +92,17 @@ public class SLFLList<E> extends SLList<E>
 
 	public void removeNode(Node<E> target) {
 		// TODO Auto-generated method stub
-//		SNode<E> x=(SNode<E>) (this.getNodeBefore(((SNode<E>)target)));
-//		x.setNext(((SNode<E>)target).getNext());
-//		target=null;
+		if(((SNode<E>)target).equals(first)) {
+//			((SNode<E>)target).setNext(first);
+//			first=(SNode<E>)target;
+			first=first.getNext();
+			length--;
+		}
+	 else if(target!=null) {
+		((SNode<E>)(this.getNodeBefore((SNode<E>)target))).setNext(((SNode<E>)target).getNext());
+		target=null;
+		length--;}
+		
 	}
 	
 	public Node<E> createNewNode() {
