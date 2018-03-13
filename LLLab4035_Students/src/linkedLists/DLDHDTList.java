@@ -1,6 +1,9 @@
 package linkedLists;
 
+import java.lang.reflect.Array;
 import java.util.NoSuchElementException;
+
+import linkedLists.AbstractSLList.SNode;
 
 public class DLDHDTList<E> extends AbstractDLList<E> {
 	private DNode<E> header, trailer; 
@@ -100,9 +103,10 @@ public class DLDHDTList<E> extends AbstractDLList<E> {
 		DNode<E> prev=((DNode<E>)target).getPrev();
 		prev.setNext(next);
 		next.setPrev(prev);
-		((DNode<E>)target).setNext(null);
-		((DNode<E>)target).setPrev(null);
+		//((DNode<E>)target).setNext(null);
+		//((DNode<E>)target).setPrev(null);
 		length--;
+		((DNode<E>)target).clean();
 	}
 	
 	/**
@@ -139,5 +143,43 @@ public class DLDHDTList<E> extends AbstractDLList<E> {
 	        super.finalize();
 	    }
 	}
+//	public Object[] toArray() {
+//		int i=0;
+//		Object[] array = new Object[this.length()]; 
+//	  
+//		DNode<E> x= header;
+//		  while(x.getNext()!=null) {
+//			  
+//			  array[i]= x.getElement();
+//			  x=x.getNext();
+//			  i++;
+//	    }
+//	    
+//	    return array;
+//	}
+//
+//
+//	
+//	public <E> E[] toArray(E[] array) {
+//		int i=0;
+//		if (array.length < this.length()) { 
+//	       
+//			array = (E[]) Array.newInstance(array.getClass().getComponentType(), this.length());
+//	    } else if (array.length > this.length()) 
+//	    	
+//	    	for (int j=this.length(); j< array.length; j++) 
+//	    		array[j] = null;
+//	    
+//	    
+//	  DNode<E> x= (DNode<E>) header;
+//	  while(x.getNext()!=null) {
+//		  array[i]= x.getNext().getElement();
+//		  x=x.getNext();
+//		  i++;
+//	  }
+//	        
+//	    
+//	    return array;	
+//	}
 
 }

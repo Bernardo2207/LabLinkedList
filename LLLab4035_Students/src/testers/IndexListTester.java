@@ -3,6 +3,9 @@ package testers;
 import linkedLists.DLDHDTList;
 import linkedLists.SLFLList;
 import linkedLists.SLList;
+
+import com.sun.corba.se.impl.orbutil.graph.Node;
+
 import indexList.IndexList;
 import indexList.LLIndexList;
 
@@ -13,7 +16,18 @@ public class IndexListTester {
 	 */
 	public static void main(String[] args) {	
 		listTester("Testing the singly linked list (SLList): ",
-				new LLIndexList<Integer>(new DLDHDTList<Integer>()));	
+				new LLIndexList<Integer>(new DLDHDTList<Integer>()));
+		
+		LLIndexList<Integer> xxx= new LLIndexList<Integer>(new SLFLList<Integer>());
+		LLIndexList<Integer> yyy= new LLIndexList<Integer>(new DLDHDTList<Integer>());
+		xxx.add(0,5);
+		xxx.add(1,8);
+		xxx.add(2,15);
+		Object[] x= xxx.toArray();
+		System.out.println(x[0]);
+		System.out.println(x[1]);
+		System.out.println(x[2]);
+		
 	}
 		
 	private static void listTester(String msg, IndexList<Integer>  list) { 
@@ -67,6 +81,7 @@ public class IndexListTester {
 		showListAfterDeleting(list, 2); 
 		showListAfterDeleting(list, 2); 
 		showListAfterDeleting(list, 2); 
+		
 
 	}
 		
